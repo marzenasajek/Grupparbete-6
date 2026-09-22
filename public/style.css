@@ -16,12 +16,14 @@ body {
 .site-header,
 main,
 footer {
+  
   width: min(760px, calc(100% - 40px));
   margin-inline: auto;
-}
+ }
 
 .site-header {
   padding: 72px 0 36px;
+  text-align: center ;
 }
 
 .eyebrow {
@@ -78,6 +80,7 @@ button {
   font: inherit;
   font-weight: 700;
   cursor: pointer;
+  text-align:center;
 }
 
 button:hover {
