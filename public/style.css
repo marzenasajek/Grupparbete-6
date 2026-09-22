@@ -104,3 +104,9 @@ footer {
   color: #68717a;
   font-size: 0.9rem;
 }
+nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+ 
