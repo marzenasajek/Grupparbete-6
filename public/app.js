@@ -2,10 +2,17 @@ const tryButton = document.querySelector("#try-button");
 const result = document.querySelector("#result");
 const serverStatus = document.querySelector("#server-status");
 const kontaktButton = document.querySelector("#kontakt-button");
+const bookingButton = document.querySelector("#booking-button");
 
 if (kontaktButton) {
   kontaktButton.addEventListener("click", () => {
     window.location.href = "/kontakt.html";
+  });
+}
+
+if (bookingButton) {
+  bookingButton.addEventListener("click", () => {
+    window.location.href = "/bokatid.html";
   });
 }
 

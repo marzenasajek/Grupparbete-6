@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boka tid</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="booking-page">
+    <main class="booking-container">
+      <section class="booking-card">
+        <p class="eyebrow">Boka tid</p>
+        <h1>Boka ett möte</h1>
+        <p class="booking-intro">
+          Välj en tid som passar dig och fyll i dina uppgifter så kontaktar vi dig för bekräftelse.
+        </p>
+
+        <form class="booking-form">
+          <div class="booking-grid">
+            <div class="input-group">
+              <label for="namn">Namn</label>
+              <input id="namn" type="text" name="namn" placeholder="Ditt namn" />
+            </div>
+
+            <div class="input-group">
+              <label for="email">E-post</label>
+              <input id="email" type="email" name="email" placeholder="namn@exempel.se" />
+            </div>
+          </div>
+
+          <div class="booking-grid">
+            <div class="input-group">
+              <label for="datum">Datum</label>
+              <input id="datum" type="date" name="datum" />
+            </div>
+
+            <div class="input-group">
+              <label for="tid">Tid</label>
+              <select id="tid" name="tid">
+                <option value="">Välj tid</option>
+                <option>09:00</option>
+                <option>10:30</option>
+                <option>12:00</option>
+                <option>14:00</option>
+                <option>15:30</option>
+                <option>17:00</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="service">Tjänst</label>
+            <select id="service" name="service">
+              <option value="">Välj tjänst</option>
+              <option>Första konsultation</option>
+              <option>Webbplatsutveckling</option>
+              <option>Digital strategi</option>
+              <option>Support och underhåll</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label for="meddelande">Övriga uppgifter</label>
+            <textarea id="meddelande" name="meddelande" placeholder="Berätta vad du behöver hjälp med..."></textarea>
+          </div>
+
+          <button type="submit">Boka tid</button>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
