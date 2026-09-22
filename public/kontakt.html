@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kontakta oss</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="contact-page">
+    <main class="container">
+      <section class="contact-layout">
+        <div class="info-card">
+          <span class="eyebrow">Kontakt</span>
+          <h1>Vi vill gärna höra från dig.</h1>
+          <p class="intro">
+            Har du frågor, behöver hjälp eller vill diskutera ett projekt? Fyll i<br />
+            formuläret så återkommer vi så snart som möjligt.
+          </p>
+
+          <div class="contact-list">
+            <div class="contact-item">
+              <div class="icon">📍</div>
+              <div>
+                <strong>Adress</strong>
+                <span>Storgatan 12, 123 45 Stockholm</span>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="icon">📞</div>
+              <div>
+                <strong>Telefon</strong>
+                <a href="tel:+46701234567">+46 70 123 45 67</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="icon">✉️</div>
+              <div>
+                <strong>E-post</strong>
+                <a href="mailto:hej@foretaget.se">hej@foretaget.se</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-card">
+          <form>
+            <div class="field-row">
+              <div class="input-group">
+                <label for="fornamn">Förnamn</label>
+                <input id="fornamn" type="text" name="fornamn" placeholder="Ditt förnamn" />
+              </div>
+
+              <div class="input-group">
+                <label for="efternamn">Efternamn</label>
+                <input id="efternamn" type="text" name="efternamn" placeholder="Ditt efternamn" />
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label for="email">E-post</label>
+              <input id="email" type="email" name="email" placeholder="namn@exempel.se" />
+            </div>
+
+            <div class="input-group">
+              <label for="amne">Ämne</label>
+              <select id="amne" name="amne">
+                <option value="">Välj ämne</option>
+                <option>Fråga om tjänster</option>
+                <option>Prissättning</option>
+                <option>Support</option>
+                <option>Övrigt</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <label for="meddelande">Meddelande</label>
+              <textarea id="meddelande" name="meddelande" placeholder="Skriv ditt meddelande här..."></textarea>
+            </div>
+
+            <button type="submit">Skicka meddelande</button>
+          </form>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

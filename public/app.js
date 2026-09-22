@@ -1,16 +1,25 @@
 const tryButton = document.querySelector("#try-button");
 const result = document.querySelector("#result");
 const serverStatus = document.querySelector("#server-status");
+const kontaktButton = document.querySelector("#kontakt-button");
 
-tryButton.addEventListener("click", () => {
-  const time = new Date().toLocaleTimeString("sv-SE");
-  result.textContent = `Handlingen registrerades i browsern kl. ${time}.`;
-
-  console.log("Starter interaction", {
-    action: "try_button_clicked",
-    occurredAt: new Date().toISOString(),
+if (kontaktButton) {
+  kontaktButton.addEventListener("click", () => {
+    window.location.href = "/kontakt.html";
   });
-});
+}
+
+if (tryButton) {
+  tryButton.addEventListener("click", () => {
+    const time = new Date().toLocaleTimeString("sv-SE");
+    result.textContent = `Handlingen registrerades i browsern kl. ${time}.`;
+
+    console.log("Starter interaction", {
+      action: "try_button_clicked",
+      occurredAt: new Date().toISOString(),
+    });
+  });
+}
 
 async function checkServer() {
   try {
