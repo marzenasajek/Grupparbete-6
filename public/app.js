@@ -2,12 +2,19 @@ const tryButton = document.querySelector("#try-button");
 const result = document.querySelector("#result");
 const serverStatus = document.querySelector("#server-status");
 const aboutButton = document.querySelector("#about-button");
+const servicesButton = document.querySelector("#services-button");
 const kontaktButton = document.querySelector("#kontakt-button");
 const bookingButton = document.querySelector("#booking-button");
 
 if (aboutButton) {
   aboutButton.addEventListener("click", () => {
     window.location.href = "/omoss.html";
+  });
+}
+
+if (servicesButton) {
+  servicesButton.addEventListener("click", () => {
+    window.location.href = "/tjanster.html";
   });
 }
 
