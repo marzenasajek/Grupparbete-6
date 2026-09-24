@@ -1,15 +1,284 @@
 <!DOCTYPE html>
 <html lang="sv">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Om oss</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body class="contact-page">
-    <main class="container">
-      <div class="omoss">
-        <p>This is about us page. Here you can provide information about your company.</p>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Om oss – Värme & Omsorg för Seniorer</title>
+  <style>
+    /* Reset i podstawowe ustawienia */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8fafc;
+      color: #334155;
+      line-height: 1.6;
+    }
+
+    /* Główny kontener strony */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* Sekcja nagłówkowa (Hero) */
+    .hero {
+      text-align: center;
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      color: #ffffff;
+      padding: 50px 25px;
+      border-radius: 16px;
+      margin-bottom: 45px;
+      box-shadow: 0 10px 25px rgba(30, 60, 114, 0.15);
+    }
+
+    .hero h1 {
+      font-size: 34px;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 750px;
+      margin: 0 auto;
+      color: #e2e8f0;
+    }
+
+    /* Tytuły sekcji */
+    .section-title {
+      text-align: center;
+      font-size: 26px;
+      color: #1e293b;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #64748b;
+      margin-bottom: 35px;
+      font-size: 15px;
+    }
+
+    /* Sekcja usług (Vad vi erbjuder) */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-bottom: 50px;
+    }
+
+    .service-card {
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      text-align: center;
+    }
+
+    .service-card h3 {
+      color: #1e3c72;
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .service-card p {
+      color: #64748b;
+      font-size: 14px;
+    }
+
+    /* Sekcja zespołu (Vårt team - 5 osób) */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-bottom: 50px;
+    }
+
+    .team-member {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 24px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .team-member:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: #e2e8f0;
+      color: #2a5298;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      font-weight: 700;
+      margin: 0 auto 16px auto;
+    }
+
+    .team-member h3 {
+      font-size: 18px;
+      color: #0f172a;
+      margin-bottom: 4px;
+    }
+
+    .role {
+      font-size: 13px;
+      font-weight: 600;
+      color: #2563eb;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+    }
+
+    .bio {
+      font-size: 14px;
+      color: #64748b;
+    }
+
+    /* Stopka z kontaktem */
+    .contact-box {
+      text-align: center;
+      background: #ffffff;
+      padding: 35px;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    .contact-box h2 {
+      color: #1e3c72;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .contact-btn {
+      display: inline-block;
+      margin-top: 15px;
+      background-color: #2563eb;
+      color: #ffffff;
+      padding: 10px 22px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: background 0.2s ease;
+    }
+
+    .contact-btn:hover {
+      background-color: #1d4ed8;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- HERO / NAGŁÓWEK -->
+    <header class="hero">
+      <h1>Om oss</h1>
+      <p>Vi är fem engagerade personer som brinner för att ge äldre en tryggare, rörligare och mer meningsfull vardag fylld av omtanke och välmående.</p>
+    </header>
+
+    <!-- VÅRA TJÄNSTER / USŁUGI -->
+    <section>
+      <h2 class="section-title">Vad vi erbjuder</h2>
+      <p class="section-subtitle">Vårt mål är att sprida glädje och välbefinnande genom enkla och omtänksamma insatser.</p>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>Avslappnande Massage</h3>
+          <p>Mjuk och varsam beröringsmassage för nacke, axlar, händer och fötter som lindrar stelhet och oro.</p>
+        </div>
+
+        <div class="service-card">
+          <h3>Sällskap & Samtal</h3>
+          <p>En trevlig stund över en kopp kaffe, högläsning eller bara ett varmt och lyssnande öra.</p>
+        </div>
+
+        <div class="service-card">
+          <h3>Promenader & Rörlighet</h3>
+          <p>Trygga promenader utomhus i friska luften och enkla rörlighetsövningar anpassade efter dagsformen.</p>
+        </div>
+
+        <div class="service-card">
+          <h3>Vardagshjälp</h3>
+          <p>Stöd med små vardagssysslor som skapar trygghet och gör dagen lite enklare.</p>
+        </div>
       </div>
-    </main>
-  </body>
+    </section>
+
+    <!-- VÅRT TEAM / 5 OSÓB -->
+    <section>
+      <h2 class="section-title">Vårt team</h2>
+      <p class="section-subtitle">Lär känna oss fem som står bakom initiativet.</p>
+
+      <div class="team-grid">
+        <!-- Sara Amaniel Habte -->
+        <div class="team-member">
+          <div class="avatar">AL</div>
+          <h3>Sara Amaniel Habte</h3>
+          <div class="role">Massageterapeut & Grundare</div>
+          <p class="bio">Certifierad massör med fokus på mjukdels- och taktil massage som hjälper äldre att slappna av och minska värk.</p>
+        </div>
+
+        <!--Marzena Sajek -->
+        <div class="team-member">
+          <div class="avatar">EB</div>
+          <h3>Marzena Sajek</h3>
+          <div class="role">Fysioterapeut & Aktivitet</div>
+          <p class="bio">Hjälper våra seniorer med balansträning, lätta övningar och säkra promenader för ökad rörlighet i vardagen.</p>
+        </div>
+
+        <!-- Kamalika Sarkar-->
+        <div class="team-member">
+          <div class="avatar">SJ</div>
+          <h3>Kamalika Sarkar</h3>
+          <div class="role">Omsorg & Samtal</div>
+          <p class="bio">Brinner för den sociala samvaron, ett varmt bemötande och att skapa meningsfulla stunder över en kopp kaffe.</p>
+        </div>
+
+        <!--Simon Malky-->
+        <div class="team-member">
+          <div class="avatar">MN</div>
+          <h3>Simon Malky</h3>
+          <div class="role">Vardagsstöd & Hälsa</div>
+          <p class="bio">Hjälper till med praktiska moment och motiverar till daglig aktivitet med ett positivt och tålmodigt sinne.</p>
+        </div>
+
+        <!--Anna Sofia Enderlin-->
+        <div class="team-member">
+          <div class="avatar">EE</div>
+          <h3>Anna Sofia Enderlin</h3>
+          <div class="role">Koordinator & Välmående</div>
+          <p class="bio">Planerar våra besök och ser till att varje person får precis den omsorg, tid och trygghet som behövs.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- KONTAKT -->
+    <footer class="contact-box">
+      <h2>Vill du veta mer eller boka ett besök?</h2>
+      <p>Vi anpassar alltid våra träffar efter dina eller din anhöriges individuella önskemål och behov.</p>
+      <a href="mailto:kontakt@seniorvardag.se" class="contact-btn">Kontakta oss</a>
+    </footer>
+
+  </div>
+
+</body>
+</html>
