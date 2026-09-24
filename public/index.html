@@ -1,31 +1,228 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="sv">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-    </title>
-    <link rel="stylesheet" href="/style.css" />
-  </head>
-  <body>
-    <nav>
-      <a href="index.html"><strong>Hem</strong></a> 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projekt Grupp 6 – Värme & Omsorg</title>
+  <style>
+    /* Reset i podstawowe ustawienia wspólne dla całego serwisu */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8fafc;
+      color: #334155;
+      line-height: 1.6;
+    }
+
+    /* Główny kontener strony */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* Pasek nawigacyjny na samej górze */
+    .nav-top {
+      margin-bottom: 20px;
+    }
+
+    .nav-top a {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      color: #2563eb;
+      font-size: 14px;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .nav-top a:hover {
+      color: #1d4ed8;
+      text-decoration: underline;
+    }
+
+    /* Banner nagłówkowy (Hero Banner spójny z resztą podstron) */
+    .hero {
+      text-align: center;
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      color: #ffffff;
+      padding: 45px 25px;
+      border-radius: 16px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 25px rgba(30, 60, 114, 0.15);
+    }
+
+    .hero .eyebrow {
+      display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 12px;
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .hero .intro {
+      font-size: 15px;
+      max-width: 650px;
+      margin: 0 auto;
+      color: #e2e8f0;
+    }
+
+    /* Nowoczesne menu przycisków nawigacyjnych */
+    .menu-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 35px;
+    }
+
+    .menu-bar button {
+      background-color: #ffffff;
+      color: #1e3c72;
+      border: 1px solid #cbd5e1;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+      transition: all 0.2s ease;
+    }
+
+    .menu-bar button:hover {
+      background-color: #2563eb;
+      color: #ffffff;
+      border-color: #2563eb;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+    }
+
+    /* Układ głównych kart */
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* Styl kart */
+    .card {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    .card h2 {
+      font-size: 20px;
+      color: #1e3c72;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #f1f5f9;
+      padding-bottom: 8px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #64748b;
+      margin-bottom: 16px;
+    }
+
+    /* Przyciski wewnątrz kart */
+    #try-button {
+      background-color: #2563eb;
+      color: #ffffff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+
+    #try-button:hover {
+      background-color: #1d4ed8;
+      transform: translateY(-1px);
+    }
+
+    /* Wynik i status */
+    .result {
+      margin-top: 14px;
+      padding: 10px 14px;
+      background-color: #f8fafc;
+      border-left: 4px solid #94a3b8;
+      border-radius: 0 6px 6px 0;
+      font-size: 14px;
+      color: #334155;
+      font-weight: 500;
+    }
+
+    .status {
+      margin-top: 12px;
+      display: inline-block;
+      padding: 6px 14px;
+      background-color: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* Stopka */
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #e2e8f0;
+      color: #94a3b8;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Pasek powrotny -->
+    <nav class="nav-top">
+      <a href="index.html"><strong>Hem</strong></a>
     </nav>
-    <header class="site-header">
-      <p class="eyebrow">Digital Platform Project grupp 6 </p>
+
+    <!-- Nagłówek wizualny (Hero) -->
+    <header class="hero">
+      <p class="eyebrow">Digital Platform Project grupp 6</p>
       <h1>Projekt grupp 6</h1>
       <p class="intro">
         Sara Amaniel Habte, Kamalika Sarkar, Anna Sofia Enderlin, Simon Malky, Marzena Sajek
       </p>
     </header>
-    <!-- Menu -->    
-    <center>
-      <button id="home-button" type="button" href="index.html">Home</button>
-      <button id="services-button" type="button">Tjänster</button>
-      <button id="about-button" type="button">Om oss</button>
-      <button id="kontakt-button" type="button">Kontakt</button>
-     <button id="booking-button" type="button">Boka tid</button>
-    </center>
+
+    <!-- Menu przycisków -->
+    <div class="menu-bar">
+      <button id="home-button" type="button" onclick="location.href='index.html'">Hem</button>
+      <button id="services-button" type="button" onclick="location.href='tjanster.html'">Tjänster</button>
+      <button id="about-button" type="button" onclick="location.href='om-oss.html'">Om oss</button>
+      <button id="kontakt-button" type="button" onclick="location.href='kontakt.html'">Kontakt</button>
+      <button id="booking-button" type="button" onclick="location.href='boka.html'">Boka tid</button>
+    </div>
+
+    <!-- Główna zawartość -->
     <main>
       <section class="card" aria-labelledby="first-step-title">
         <h2 id="first-step-title">Första steget</h2>
@@ -48,10 +245,13 @@
       </section>
     </main>
 
+    <!-- Stopka -->
     <footer>
       <p>Build anything. Understand what happens.</p>
     </footer>
 
-    <script src="/app.js"></script>
-  </body>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
 </html>
