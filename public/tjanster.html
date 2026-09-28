@@ -1,91 +1,280 @@
 <!DOCTYPE html>
 <html lang="sv">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Massagepriser</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body class="services-page">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Massagepriser – Värme & Omsorg</title>
+  <style>
+    /* Reset i podstawowe ustawienia wspólne dla całego serwisu */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8fafc;
+      color: #334155;
+      line-height: 1.6;
+    }
+
+    /* Główny kontener strony */
+    .container {
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* Przycisk powrotu w lewym górnym rogu */
+    .nav-left {
+      margin-bottom: 20px;
+    }
+
+    .nav-left a {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      color: #2563eb;
+      font-size: 14px;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .nav-left a:hover {
+      color: #1d4ed8;
+      text-decoration: underline;
+    }
+
+    /* Banner nagłówkowy (Hero Banner identyczny jak na pozostałych podstronach) */
+    .hero {
+      text-align: center;
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      color: #ffffff;
+      padding: 50px 25px;
+      border-radius: 16px;
+      margin-bottom: 40px;
+      box-shadow: 0 10px 25px rgba(30, 60, 114, 0.15);
+    }
+
+    .hero .eyebrow {
+      display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 12px;
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      font-size: 32px;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .hero p {
+      font-size: 16px;
+      max-width: 650px;
+      margin: 0 auto;
+      color: #e2e8f0;
+    }
+
+    /* Sekcje kategorii masaży */
+    .service-section {
+      margin-bottom: 40px;
+    }
+
+    .service-section h2 {
+      font-size: 20px;
+      color: #1e3c72;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    /* Siatka kafelków */
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    /* Karta usługi */
+    .service-card {
+      background: #ffffff;
+      padding: 24px;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+    }
+
+    /* Plakietka czasu trwania */
+    .service-tag {
+      display: inline-block;
+      align-self: flex-start;
+      background-color: #eff6ff;
+      color: #2563eb;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+      border: 1px solid #dbeafe;
+    }
+
+    .service-card h3 {
+      font-size: 18px;
+      color: #0f172a;
+      margin-bottom: 8px;
+    }
+
+    .service-card p {
+      font-size: 14px;
+      color: #64748b;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    /* Wiersze z cenami */
+    .service-price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 14px;
+      color: #475569;
+      background-color: #f8fafc;
+      margin-top: 6px;
+    }
+
+    .service-price-row strong {
+      color: #0f172a;
+      font-size: 15px;
+    }
+
+    /* Wyróżniony wiersz dla seniorów 65+ */
+    .senior-row {
+      background-color: #eff6ff;
+      border: 1px solid #bfdbfe;
+    }
+
+    .senior-row span {
+      font-weight: 700;
+      color: #1e3c72;
+    }
+
+    .senior-row strong {
+      color: #2563eb;
+      font-size: 16px;
+      font-weight: 800;
+    }
+  </style>
+</head>
+<body class="services-page">
+
+  <main class="container">
+    
+    <!-- Nawigacja powrotna -->
     <nav class="nav-left">
-      <a href="index.html"><strong>Hem</strong></a>
+      <a href="index.html">← Tillbaka till Hem</a>
     </nav>
 
-    <main class="service-page">
-      <header class="service-header">
-        <p class="eyebrow">Våra behandlingar</p>
-        <h1>Massage för kropp och sinne</h1>
-        <p class="service-intro">
-          Våra massagebehandlingar är anpassade för både unga och äldre. För kunder 65+ gäller ett
-          rabatterat seniorpris.
-        </p>
-      </header>
+    <!-- Nagłówek wizualny (Hero) -->
+    <header class="hero">
+      <span class="eyebrow">Våra behandlingar</span>
+      <h1>Massage för kropp och sinne</h1>
+      <p>
+        Våra massagebehandlingar är anpassade för både unga och äldre. För kunder 65+ gäller ett
+        rabatterat seniorpris.
+      </p>
+    </header>
 
-      <section class="service-section" aria-label="Avslappnande massage">
-        <h2>Avslappnande massage</h2>
-        <div class="service-grid">
-          <article class="service-card">
-            <span class="service-tag">30 min</span>
-            <h3>Klassisk massage</h3>
-            <p>En avslappnande helkroppsbehandling som mjukar upp spända muskler och lugnar sinnet.</p>
-            <div class="service-price-row">
-              <span>Ordinarie</span>
-              <strong>299 kr</strong>
-            </div>
-            <div class="service-price-row senior-row">
-              <span>65+</span>
-              <strong>239 kr</strong>
-            </div>
-          </article>
+    <!-- Sekcja 1: Avslappnande massage -->
+    <section class="service-section" aria-label="Avslappnande massage">
+      <h2>Avslappnande massage</h2>
+      <div class="service-grid">
+        
+        <article class="service-card">
+          <span class="service-tag">30 min</span>
+          <h3>Klassisk massage</h3>
+          <p>En avslappnande helkroppsbehandling som mjukar upp spända muskler och lugnar sinnet.</p>
+          <div class="service-price-row">
+            <span>Ordinarie</span>
+            <strong>299 kr</strong>
+          </div>
+          <div class="service-price-row senior-row">
+            <span>Senior 65+</span>
+            <strong>239 kr</strong>
+          </div>
+        </article>
 
-          <article class="service-card">
-            <span class="service-tag">45 min</span>
-            <h3>Djupvävnad massage</h3>
-            <p>Riktar in sig på spända muskler och leder för att minska värk och öka rörlighet.</p>
-            <div class="service-price-row">
-              <span>Ordinarie</span>
-              <strong>449 kr</strong>
-            </div>
-            <div class="service-price-row senior-row">
-              <span>65+</span>
-              <strong>359 kr</strong>
-            </div>
-          </article>
-        </div>
-      </section>
+        <article class="service-card">
+          <span class="service-tag">45 min</span>
+          <h3>Djupvävnad massage</h3>
+          <p>Riktar in sig på spända muskler och leder för att minska värk och öka rörlighet.</p>
+          <div class="service-price-row">
+            <span>Ordinarie</span>
+            <strong>449 kr</strong>
+          </div>
+          <div class="service-price-row senior-row">
+            <span>Senior 65+</span>
+            <strong>359 kr</strong>
+          </div>
+        </article>
 
-      <section class="service-section" aria-label="Lyx och återhämtning">
-        <h2>Lyx och återhämtning</h2>
-        <div class="service-grid">
-          <article class="service-card">
-            <span class="service-tag">60 min</span>
-            <h3>Hot stone massage</h3>
-            <p>Varma stenar ger djupare avslappning och hjälper till att frigöra muskelspänningar.</p>
-            <div class="service-price-row">
-              <span>Ordinarie</span>
-              <strong>599 kr</strong>
-            </div>
-            <div class="service-price-row senior-row">
-              <span>65+</span>
-              <strong>469 kr</strong>
-            </div>
-          </article>
+      </div>
+    </section>
 
-          <article class="service-card">
-            <span class="service-tag">50 min</span>
-            <h3>Aromaterapi massage</h3>
-            <p>En lyxig behandling med doftande oljor för att skapa vila, balans och välbefinnande.</p>
-            <div class="service-price-row">
-              <span>Ordinarie</span>
-              <strong>529 kr</strong>
-            </div>
-            <div class="service-price-row senior-row">
-              <span>65+</span>
-              <strong>419 kr</strong>
-            </div>
-          </article>
-        </div>
-      </section>
-    </main>
-  </body>
+    <!-- Sekcja 2: Lyx och återhämtning -->
+    <section class="service-section" aria-label="Lyx och återhämtning">
+      <h2>Lyx och återhämtning</h2>
+      <div class="service-grid">
+        
+        <article class="service-card">
+          <span class="service-tag">60 min</span>
+          <h3>Hot stone massage</h3>
+          <p>Varma stenar ger djupare avslappning och hjälper till att frigöra muskelspänningar.</p>
+          <div class="service-price-row">
+            <span>Ordinarie</span>
+            <strong>599 kr</strong>
+          </div>
+          <div class="service-price-row senior-row">
+            <span>Senior 65+</span>
+            <strong>469 kr</strong>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <span class="service-tag">50 min</span>
+          <h3>Aromaterapi massage</h3>
+          <p>En lyxig behandling med doftande oljor för att skapa vila, balans och välbefinnande.</p>
+          <div class="service-price-row">
+            <span>Ordinarie</span>
+            <strong>529 kr</strong>
+          </div>
+          <div class="service-price-row senior-row">
+            <span>Senior 65+</span>
+            <strong>419 kr</strong>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+</body>
 </html>

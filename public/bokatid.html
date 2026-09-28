@@ -1,75 +1,249 @@
 <!DOCTYPE html>
 <html lang="sv">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Boka tid</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body class="booking-page">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boka tid – Värme & Omsorg</title>
+  <style>
+    /* Reset i podstawowe ustawienia wspólne z pozostałymi podstronami */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8fafc;
+      color: #334155;
+      line-height: 1.6;
+    }
+
+    /* Główny kontener strony */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* Przycisk powrotu w lewym górnym rogu */
+    .nav-left {
+      margin-bottom: 20px;
+    }
+
+    .nav-left a {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      color: #2563eb;
+      font-size: 14px;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .nav-left a:hover {
+      color: #1d4ed8;
+      text-decoration: underline;
+    }
+
+    /* Banner nagłówkowy (taki sam gradient jak na Om oss i Kontakt) */
+    .hero {
+      text-align: center;
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      color: #ffffff;
+      padding: 45px 25px;
+      border-radius: 16px;
+      margin-bottom: 35px;
+      box-shadow: 0 10px 25px rgba(30, 60, 114, 0.15);
+    }
+
+    .hero .eyebrow {
+      display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 12px;
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .hero p {
+      font-size: 16px;
+      max-width: 600px;
+      margin: 0 auto;
+      color: #e2e8f0;
+    }
+
+    /* Karta formularza rezerwacji */
+    .booking-card {
+      background: #ffffff;
+      padding: 35px;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    /* Siatki układu pól formularza */
+    .booking-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .booking-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .input-group label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #334155;
+      margin-bottom: 6px;
+    }
+
+    .input-group input,
+    .input-group select,
+    .input-group textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: inherit;
+      color: #1e293b;
+      background-color: #f8fafc;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+      outline: none;
+    }
+
+    .input-group input:focus,
+    .input-group select:focus,
+    .input-group textarea:focus {
+      border-color: #2563eb;
+      background-color: #ffffff;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    }
+
+    .input-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    /* Przycisk potwierdzenia rezerwacji */
+    button[type="submit"] {
+      width: 100%;
+      background-color: #2563eb;
+      color: #ffffff;
+      border: none;
+      padding: 14px 20px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+      margin-top: 10px;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #1d4ed8;
+      transform: translateY(-1px);
+    }
+
+    button[type="submit"]:active {
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="booking-page">
+
+  <main class="container">
+    
+    <!-- Nawigacja powrotna -->
     <nav class="nav-left">
-      <a href="index.html"><strong>Hem</strong></a>
+      <a href="index.html">← Tillbaka till Hem</a>
     </nav>
-    <main class="booking-container">
-      <section class="booking-card">
-        <p class="eyebrow">Boka tid</p>
-        <h1>Boka ett möte</h1>
-        <p class="booking-intro">
-          Välj en tid som passar dig och fyll i dina uppgifter så kontaktar vi dig för bekräftelse.
-        </p>
 
-        <form class="booking-form">
-          <div class="booking-grid">
-            <div class="input-group">
-              <label for="namn">Namn</label>
-              <input id="namn" type="text" name="namn" placeholder="Ditt namn" />
-            </div>
+    <!-- Nagłówek wizualny (Hero) -->
+    <header class="hero">
+      <span class="eyebrow">Boka tid</span>
+      <h1>Boka ett möte</h1>
+      <p>Välj en tid som passar dig och fyll i dina uppgifter så kontaktar vi dig för bekräftelse.</p>
+    </header>
 
-            <div class="input-group">
-              <label for="email">E-post</label>
-              <input id="email" type="email" name="email" placeholder="namn@exempel.se" />
-            </div>
-          </div>
-
-          <div class="booking-grid">
-            <div class="input-group">
-              <label for="datum">Datum</label>
-              <input id="datum" type="date" name="datum" />
-            </div>
-
-            <div class="input-group">
-              <label for="tid">Tid</label>
-              <select id="tid" name="tid">
-                <option value="">Välj tid</option>
-                <option>09:00</option>
-                <option>10:30</option>
-                <option>12:00</option>
-                <option>14:00</option>
-                <option>15:30</option>
-                <option>17:00</option>
-              </select>
-            </div>
+    <!-- Karta z formularzem -->
+    <section class="booking-card">
+      <form class="booking-form">
+        
+        <div class="booking-grid">
+          <div class="input-group">
+            <label for="namn">Namn</label>
+            <input id="namn" type="text" name="namn" placeholder="Ditt namn" />
           </div>
 
           <div class="input-group">
-            <label for="service">Tjänst</label>
-            <select id="service" name="service">
-              <option value="">Välj tjänst</option>
-              <option>Första konsultation</option>
-              <option>Webbplatsutveckling</option>
-              <option>Digital strategi</option>
-              <option>Support och underhåll</option>
+            <label for="email">E-post</label>
+            <input id="email" type="email" name="email" placeholder="namn@exempel.se" />
+          </div>
+        </div>
+
+        <div class="booking-grid">
+          <div class="input-group">
+            <label for="datum">Datum</label>
+            <input id="datum" type="date" name="datum" />
+          </div>
+
+          <div class="input-group">
+            <label for="tid">Tid</label>
+            <select id="tid" name="tid">
+              <option value="">Välj tid</option>
+              <option>09:00</option>
+              <option>10:30</option>
+              <option>12:00</option>
+              <option>14:00</option>
+              <option>15:30</option>
+              <option>17:00</option>
             </select>
           </div>
+        </div>
 
-          <div class="input-group">
-            <label for="meddelande">Övriga uppgifter</label>
-            <textarea id="meddelande" name="meddelande" placeholder="Berätta vad du behöver hjälp med..."></textarea>
-          </div>
+        <div class="input-group">
+          <label for="service">Tjänst</label>
+          <select id="service" name="service">
+            <option value="">Välj tjänst</option>
+            <option>Första konsultation</option>
+            <option>Avslappnande massage</option>
+            <option>Sällskap & promenad</option>
+            <option>Vardagshjälp</option>
+          </select>
+        </div>
 
-          <button type="submit">Boka tid</button>
-        </form>
-      </section>
-    </main>
-  </body>
+        <div class="input-group">
+          <label for="meddelande">Övriga uppgifter</label>
+          <textarea id="meddelande" name="meddelande" placeholder="Berätta vad du behöver hjälp med..."></textarea>
+        </div>
+
+        <button type="submit">Boka tid</button>
+      </form>
+    </section>
+
+  </main>
+
+</body>
 </html>
