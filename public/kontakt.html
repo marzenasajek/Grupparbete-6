@@ -233,6 +233,47 @@
     button[type="submit"]:active {
       transform: translateY(0);
     }
+
+    .confirmation-dialog {
+      width: min(420px, calc(100% - 32px));
+      margin: auto;
+      padding: 32px;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      color: #334155;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(15, 23, 42, 0.25);
+    }
+
+    .confirmation-dialog::backdrop {
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(3px);
+    }
+
+    .confirmation-dialog h2 {
+      margin-bottom: 10px;
+      color: #1e3c72;
+      font-size: 22px;
+    }
+
+    .confirmation-dialog p {
+      margin-bottom: 24px;
+    }
+
+    .confirmation-dialog button {
+      border: 0;
+      border-radius: 6px;
+      padding: 11px 20px;
+      background: #2563eb;
+      color: #ffffff;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .confirmation-dialog button:hover {
+      background: #1d4ed8;
+    }
   </style>
 </head>
 <body class="contact-page">
@@ -291,7 +332,7 @@
 
       <!-- Karta formularza -->
       <div class="form-card">
-        <form>
+        <form class="contact-form">
           <div class="field-row">
             <div class="input-group">
               <label for="fornamn">Förnamn</label>
@@ -332,6 +373,27 @@
     </section>
 
   </main>
+
+  <dialog class="confirmation-dialog" aria-labelledby="confirmation-title" aria-describedby="confirmation-message">
+    <h2 id="confirmation-title">Tack för ditt meddelande!</h2>
+    <p id="confirmation-message">Vi återkommer så snart som möjligt.</p>
+    <button type="button" class="confirmation-close">Stäng</button>
+  </dialog>
+
+  <script>
+    const contactForm = document.querySelector(".contact-form");
+    const confirmationDialog = document.querySelector(".confirmation-dialog");
+    const confirmationClose = document.querySelector(".confirmation-close");
+
+    contactForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      confirmationDialog.showModal();
+    });
+
+    confirmationClose.addEventListener("click", () => {
+      confirmationDialog.close();
+    });
+  </script>
 
 </body>
 </html>
